@@ -2,7 +2,7 @@ import User  from '../models/userModel.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 
-const secretKey = 'Abegunde' // to be later stored as an environment variable
+const secretKey = process.env.JWT_SECRET // to be later stored as an environment variable
 
 // Lets generateate token by signing a unique user id
 const generateToken = (id) => {
@@ -41,16 +41,17 @@ export const createUser = async (req, res) => {
          //Generate token for the new user
          const token =  generateToken(newUser.id)
 
+         if (newUser) {
+          
          //Store the token as http cookie
          res.cookie("token", token, {
-            path: "/",
-            httpOnly: true,
-            expires: new Date(Date.now() + 1000 * 86400), //cookie expiry day set to 1 day
-            sameSite: "none",
-            secure: true,
-         });
+          path: "/",
+          httpOnly: true,
+          expires: new Date(Date.now() + 1000 * 86400), //cookie expiry day set to 1 day
+          sameSite: "none",
+          secure: true,
+       });
 
-         if (newUser) {
           const {username,email} = newUser
           res.status(201).json({message:"User created successfully", username,email,token,})
        } else {

@@ -6,11 +6,13 @@ import LoginPage from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Dashboard from './pages/Dashboard';
 import CourseDetails from './components/CourseDetails/CourseDetails';
+import Navbar from './components/Navbar/Navbar'
 
 function App() {
   return (
     <BrowserRouter>
     <ToastContainer/>
+    <Navbar/>
     <Routes>
     <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />

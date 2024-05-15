@@ -11,11 +11,14 @@ const CourseDetails = () => {
   return (
     <DetailsContainer>
       <CourseHeader>
-        <CourseTitle>{course.title}</CourseTitle>
-        <CourseImage src={course.imageUrl} alt={course.title} />
-      </CourseHeader>
+      <CourseImage src={course.imageUrl} alt={course.title} />
+     </CourseHeader>
+      <courseTitleAndDesc>
+       <CourseTitle>{course.title}</CourseTitle>
       <CourseDescription>{course.description}</CourseDescription>
-      <CoursePrice>${course.price}</CoursePrice>
+      <CoursePrice>${course.price}</CoursePrice> 
+      </courseTitleAndDesc>
+      
       <EnrollButton onClick={() => {/* logic to handle enrollment */}}>
         Enroll
       </EnrollButton>
@@ -28,13 +31,16 @@ const CourseDetails = () => {
 
 const DetailsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction:  row;
   align-items: center;
   padding: 20px;
   max-width: 800px;
   margin: auto;
 `;
-
+const courseTitleAndDesc= styled.div`
+  display:flex;
+  flex-direction:column;
+`;
 const CourseHeader = styled.div`
   width: 100%;
   display: flex;
@@ -49,7 +55,7 @@ const CourseTitle = styled.h1`
 `;
 
 const CourseImage = styled.img`
-  max-width: 50%;
+  max-width: 100%;
   height: auto;
   border-radius: 8px;
   margin-bottom: 20px;

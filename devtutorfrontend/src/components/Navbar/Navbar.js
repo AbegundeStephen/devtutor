@@ -5,13 +5,14 @@ import styled from 'styled-components';
 const Navbar = ({ username }) => {
   return (
     <NavbarContainer>
+      <Title>Devtutor.</Title>
       <UserSection>
         <Username>{username}</Username>
         <LogoutButton onClick={() => {/* handle logout logic */}}>
           Logout
         </LogoutButton>
       </UserSection>
-      <Title>Devtutor</Title>
+      
     </NavbarContainer>
   );
 };

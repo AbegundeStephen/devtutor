@@ -4,9 +4,9 @@ import mysql from 'mysql2/promise'
 const dbConfig= mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password:'Stepheng',
+    password:process.env.DB_PASSWORD,
     port:3306,
-    database:  'devtutordb'
+    database: process.env.DB_NAME
 })
 
  export default dbConfig
