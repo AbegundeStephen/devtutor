@@ -6,13 +6,13 @@ import LoginPage from './components/Auth/Login';
 import Register from './components/Auth/Register';
 import Dashboard from './pages/Dashboard';
 import CourseDetails from './components/CourseDetails/CourseDetails';
-import Navbar from './components/Navbar/Navbar'
+//import Navbar from './components/Navbar/Navbar';
+import EnrollmentConfirmation from './components/EnrollmentConfirmation/EnrollmentConfirmation'
 
 function App() {
   return (
     <BrowserRouter>
     <ToastContainer/>
-    <Navbar/>
     <Routes>
     <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -20,6 +20,7 @@ function App() {
 
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path='/course/:id' element={<CourseDetails/>}/>
+        <Route path='/enroll' element={<EnrollmentConfirmation/>}/>
     </Routes>
     </BrowserRouter>
   );

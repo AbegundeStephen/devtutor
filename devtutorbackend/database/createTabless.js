@@ -1,6 +1,6 @@
 import mysql from 'mysql2'
-import dbConfig from '../config/dbconfig.js';
 
+//Connection set and configuration for creating tables in the database
 const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',

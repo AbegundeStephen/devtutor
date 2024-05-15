@@ -1,55 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
-import styled from 'styled-components';
-
-// Styled components for the page
-const EnrollmentContainer = styled.div`
-  padding: 20px;
-  max-width: 600px;
-  margin: auto;
-`;
-
-const CourseTitle = styled.h2`
-  font-size: 2rem;
-  color: #333;
-`;
-
-const CourseDetails = styled.p`
-  font-size: 1.2rem;
-  color: #666;
-`;
-
-const UserName = styled.p`
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-`;
-
-// Dummy course data
-const courseData = {
-  title: "Introduction to Web Development",
-  description: "Learn the basics of HTML, CSS, and JavaScript.",
-  price: "49.99"
-};
-
-const EnrollmentPage = () => {
-  const [userName, setUserName] = useState('');
-
-  useEffect(() => {
-    // Fetch the user's name from the cookie
-    const name = Cookies.get('userName');
-    setUserName(name);
-  }, []);
-
+import React from 'react';
+import {useNavigate} from 'react-router-dom'
+const EnrollmentComponent = () => {
+ const navigate = useNavigate()
   return (
-    <EnrollmentContainer>
-      <UserName>User: {userName}</UserName>
-      <CourseTitle>{courseData.title}</CourseTitle>
-      <CourseDetails>{courseData.description}</CourseDetails>
-      <CourseDetails>Price: ${courseData.price}</CourseDetails>
-      {/* Include other course details here */}
-    </EnrollmentContainer>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+        <div style={{ marginTop: '20px', fontSize: '32px', color: 'green',fontWeight:20 }}>
+          You have successfully enrolled for this course
+        </div>
+
+        <button onClick={()=>navigate("/dashboard")} style={{marginTop: '50px', padding:10 ,width:'10%'}}> Go back </button>
+    
+    </div>
   );
 };
 
-export default EnrollmentPage;
+export default EnrollmentComponent;

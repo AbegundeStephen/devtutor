@@ -1,6 +1,7 @@
 import User  from '../models/userModel.js';
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
+import asyncHandler from 'express-async-handler'
 
 const secretKey = process.env.JWT_SECRET // to be later stored as an environment variable
 
@@ -12,7 +13,7 @@ const generateToken = (id) => {
 }
 
 // Controller for creating a new user
-export const createUser = async (req, res) => {
+export const createUser = asyncHandler(async (req, res) => {
   const {username, email, password} = req.body;
    // Validate the presence of input data
   if (!username || !email || !password) {
@@ -45,7 +46,7 @@ export const createUser = async (req, res) => {
           
          //Store the token as http cookie
          res.cookie("token", token, {
-          path: "/",
+          path: "/dashboard",
           httpOnly: true,
           expires: new Date(Date.now() + 1000 * 86400), //cookie expiry day set to 1 day
           sameSite: "none",
@@ -63,11 +64,11 @@ export const createUser = async (req, res) => {
     throw error
    
   }
-};
+});
 
+//login user
 
-
-export const login = async (req, res) => {
+export const login = asyncHandler(async (req, res) => {
   const {email, password} = req.body;
 
   // Validate Inputs
@@ -94,7 +95,7 @@ try {
   const token = generateToken(user)
   //set token in an HTTP only cookie
   res.cookie("token", token, {
-           path: "/",
+           path: "/dashboard",
            httpOnly: true,
            expires: new Date(Date.now() + 1000 * 86400),// cookie expiry set to 1 day
            sameSite: 'none',
@@ -107,9 +108,9 @@ try {
   console.log(error)
 }
 
-}
+})
 //Logout  User
-export const logoutUser = async (req,res) => {
+export const logoutUser = asyncHandler(async (req,res) => {
   res.cookie("token", "", {
      path: "/",
      httpOnly: true,
@@ -119,5 +120,5 @@ export const logoutUser = async (req,res) => {
   });
 
   res.status(200).json({message: "Logged out successfully"})
-};
+});
 

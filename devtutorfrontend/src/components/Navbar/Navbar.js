@@ -1,14 +1,28 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
-
+import axios from 'axios'
+import {useNavigate} from 'react-router-dom'
 
 const Navbar = ({ username }) => {
+const navigate = useNavigate()
+const handleLogout = async () => {
+  try {
+    const response = axios.post("http://localhost:5000/api/users/logout") 
+    console.log(response.data)
+    if(response.status === 200) {
+      navigate("/login")
+    }
+
+  }catch(error) {
+
+  }
+}
   return (
     <NavbarContainer>
       <Title>Devtutor.</Title>
       <UserSection>
         <Username>{username}</Username>
-        <LogoutButton onClick={() => {/* handle logout logic */}}>
+        <LogoutButton onClick={handleLogout}>
           Logout
         </LogoutButton>
       </UserSection>
@@ -43,6 +57,7 @@ const Username = styled.span`
 const LogoutButton = styled.button`
   padding: 5px 15px;
   background-color: #f44336;
+  border-radius:2px;
   color: white;
   border: none;
   cursor: pointer;
