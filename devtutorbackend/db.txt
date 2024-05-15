@@ -1,0 +1,71 @@
+
+INSERT INTO courses (title, description, price,imageUrl,videoUrl) VALUES
+(  "Introduction to Web Development",
+   "Learn the basics of HTML, CSS, and JavaScript to build your first website.",
+   49.99,
+   "https://example.com/intro-to-web-dev",
+    "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg" 
+  ),
+  (
+    "Advanced React Techniques",
+    "Take your React skills to the next level with advanced components, hooks, and state management.",
+   99.99,
+   "https://example.com/advanced-react",
+    "https://images.pexels.com/photos/540518/pexels-photo-540518.jpeg"
+  ),
+  (
+    "Mastering Python for Data Science",
+    "Master Python and its libraries to analyze data and create stunning visualizations.",
+   79.99,
+   "https://example.com/mastering-python",
+    "https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg" 
+  ),
+  (
+"Full-Stack Development with Node.js",
+    "Become a full-stack developer by learning to build applications with Node.js, Express, and MongoDB.",
+   89.99,
+   "https://example.com/full-stack-nodejs",
+    "https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg" 
+  ),
+  (
+"Mastering the Art of Cooking",
+    "Discover the secrets of culinary arts and become a master chef with our comprehensive cooking course.",
+   59.99,
+   "https://example.com/master-chef-course",
+    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg"
+  ),
+  (
+"Digital Marketing 101",
+    "Learn the fundamentals of digital marketing, including SEO, social media, and email marketing strategies.",
+   69.99,
+   "https://example.com/digital-marketing",
+    "https://images.pexels.com/photos/266176/pexels-photo-266176.jpeg"
+  ),
+  (
+"Yoga for Beginners",
+    "Start your journey to wellness with our beginner-friendly yoga course designed to improve flexibility and reduce stress.",
+   39.99,
+   "https://example.com/yoga-beginners",
+    "https://images.pexels.com/photos/3822624/pexels-photo-3822624.jpeg"),
+  (
+"Photography: Capturing the Moment",
+    "Explore photography techniques to capture stunning images, understand lighting, and compose the perfect shot.",
+   75.99,
+   "https://example.com/photography-course",
+    "https://images.pexels.com/photos/374809/pexels-photo-374809.jpeg"
+  ),
+  (
+"Blockchain Basics",
+    "Dive into the world of blockchain technology and learn how it's revolutionizing the way we think about digital transactions.",
+   89.99,
+   "https://example.com/blockchain-basics",
+    "https://images.pexels.com/photos/3735434/pexels-photo-3735434.jpeg" 
+  ),
+  (
+"Creative Writing Workshop",
+    "Unlock your creative potential with our writing workshop, perfect for aspiring authors and poets.",
+   49.99,
+   "https://example.com/creative-writing",
+    "https://images.pexels.com/photos/261577/pexels-photo-261577.jpeg" 
+  );
+
