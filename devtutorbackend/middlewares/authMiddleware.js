@@ -28,4 +28,4 @@ const protectecRoute = asyncHandler(async (req, res, next) => {
       }
     });
     
-    export default protectecRoute
+    export default protectecRoute;

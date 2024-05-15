@@ -1,5 +1,7 @@
 import express from 'express';
 import { getAllCourses, getCourseById, createCourse, updateCourse, deleteCourse, } from '../controllers/courseController.js';
+import protectedRoute from '../middlewares/authMiddleware.js'
+
 
 const coursesRoutes = express.Router();
 
