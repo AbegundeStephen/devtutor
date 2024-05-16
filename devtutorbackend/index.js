@@ -3,6 +3,7 @@ import dotenv from "dotenv/config.js"
 import cors from "cors"
 import coursesRoutes from "./routes/courseRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
+import protectecRoute from "./middlewares/authMiddleware.js"
 import errorHandler from "./middlewares/errorMiddleware.js"
 import cookieParser from "cookie-parser"
 
@@ -19,8 +20,10 @@ app.use(cors({
     origin: ["http://localhost:3000"],
     credentials: true,
 }));
+//Incase there ia an error,app should use the error middleware
+app.use(errorHandler);
 
-app.use("/api/courses", coursesRoutes);
+app.use("/api/courses",coursesRoutes);
 app.use("/api/users",userRoutes);
 app.get("/*", (req,res) => {
     res.json("WELCOME TO THE COURSE ENROLLMENT API")
@@ -28,8 +31,6 @@ app.get("/*", (req,res) => {
 })
 
 
-//Incase there ia an error,app should use the error middleware
-app.use(errorHandler);
 
 // Start the server
 const PORT = process.env.PORT 

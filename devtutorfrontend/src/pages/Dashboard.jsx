@@ -5,6 +5,7 @@ import 'react-activity/dist/library.css'
 import styled from 'styled-components'
 import axios from 'axios'
 import Navbar from '../components/Navbar/Navbar'
+import {toast} from 'react-toastify'
 
 const Dashboard = () => {
 const [courses,setCourses] = useState([])
@@ -13,12 +14,13 @@ const [loading, setLoading] = useState(false)
     try {
       //Get all courses from the databgase
       const response = await axios.get('http://localhost:5000/api/courses/getall');
-     return response.data
+      console.log(response.data)
+        return response.data
+      
      }
      
     catch (error) {
-
-      console.error(error.response.data.message);
+    toast.error(error.response.message)
     }
   };
 

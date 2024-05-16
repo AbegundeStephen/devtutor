@@ -7,15 +7,16 @@ import User from '../models/userModel.js'
 const protectecRoute = asyncHandler(async (req, res, next) => {
     try {
         const token = req.cookies.token;
+        console.log(token)
         if (!token) {
           res.status(401).json({mesage:"You are not authorized, please login"})
         }
     
         // Verify Token
         const verified = jwt.verify(token, process.env.JWT_SECRET);
-        // Get user id from token
-        const user = await User.findById(verified.id).password;
-    
+        // Get user from the verified token
+        const user = await User.findById(verified.id)
+        console.log('user: ' + JSON.stringify(user))
         if (!user) {
           res.status(401);
           throw new Error("User not found");

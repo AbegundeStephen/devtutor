@@ -1,20 +1,21 @@
-import React,{useState} from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios'
 import {useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify';
 
 const Navbar = ({ username }) => {
 const navigate = useNavigate()
 const handleLogout = async () => {
   try {
-    const response = axios.post("http://localhost:5000/api/users/logout") 
-    console.log(response.data)
-    if(response.status === 200) {
+    const response = await axios.post("http://localhost:5000/api/users/logout") 
+    if(response.statusText === "OK") {
+      toast.success(response.data.message)
       navigate("/login")
     }
 
   }catch(error) {
-
+    toast.error(error.response.data.message)
   }
 }
   return (

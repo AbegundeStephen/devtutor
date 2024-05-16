@@ -45,8 +45,8 @@ export const createUser = asyncHandler(async (req, res) => {
          if (newUser) {
           
          //Store the token as http cookie
-         res.cookie("token", token, {
-          path: "/dashboard",
+         res.cookie("token",token, {
+          path: "/",
           httpOnly: true,
           expires: new Date(Date.now() + 1000 * 86400), //cookie expiry day set to 1 day
           sameSite: "none",
@@ -66,6 +66,26 @@ export const createUser = asyncHandler(async (req, res) => {
   }
 });
 
+//Find all users
+
+export const findAllUsers = asyncHandler( async (req,res) => {
+  try {
+
+    const result = await User.findAll()
+    console.log(result)
+    if (result.length === 0) {
+      res.status(401).json({message:"Error fetching Users list"})
+    }else {
+      res.status(200).json({message:"Users list fetched successfully", users:result})
+
+    }
+
+    
+  }catch(error) {
+    res.status(500).json({message:"Server error", error:error})
+  }
+ 
+})
 //login user
 
 export const login = asyncHandler(async (req, res) => {
@@ -93,9 +113,10 @@ try {
   const user = result[0].id
   //generate a user token by signing the user
   const token = generateToken(user)
+  console.log("generated token", token)
   //set token in an HTTP only cookie
-  res.cookie("token", token, {
-           path: "/dashboard",
+  res.cookie("token",token, {
+           path: "/",
            httpOnly: true,
            expires: new Date(Date.now() + 1000 * 86400),// cookie expiry set to 1 day
            sameSite: 'none',

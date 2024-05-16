@@ -26,7 +26,15 @@ const User = {
             throw err
         }
     },
-
+    // Find all users
+    findAll: async () => {
+        try {
+          const users = await dbConfig.query('SELECT * FROM users')
+          return users[0]
+        }catch(error) {
+        throw error
+        }
+    },
     //Get user by id
    findById: async (id) => {
     try {

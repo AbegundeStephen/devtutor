@@ -8,7 +8,7 @@ const CourseListing = ({ courses}) => {
 
   return (
     <CourseListContainer>
-      {courses.map((course, index) => (
+      {courses?.map((course, index) => (
         <CourseCard to={`/course/${index}`} key={index}>
           <CourseTitle>{course.title}</CourseTitle>
           <CourseDescription>{course.description}</CourseDescription>
