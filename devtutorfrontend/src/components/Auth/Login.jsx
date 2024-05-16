@@ -14,7 +14,7 @@ const LoginPage = () => {
   const handleSubmit = async (values, {setSubmitting}) => {
     
     try {
-      const response = await axios.post("http://localhost:5000/api/users/login",values);
+      const response = await axios.post("http://localhost:5000/api/users/login",values, {withCredentials:true});
       toast.success(response.data.message)
       setSubmitting(false);
       // Redirect to dashboard if response status is 200

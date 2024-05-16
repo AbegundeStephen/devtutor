@@ -29,7 +29,7 @@ const Register = () => {
   const handleSubmit = async (values, {setSubmitting}) => {
     
     try {
-      const response = await axios.post("http://localhost:5000/api/users/register",values);
+      const response = await axios.post("http://localhost:5000/api/users/register",values,{withCredentials:true});
       toast.success(response.data.message)
       setSubmitting(false);
 

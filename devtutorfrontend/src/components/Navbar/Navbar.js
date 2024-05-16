@@ -8,7 +8,7 @@ const Navbar = ({ username }) => {
 const navigate = useNavigate()
 const handleLogout = async () => {
   try {
-    const response = await axios.post("http://localhost:5000/api/users/logout") 
+    const response = await axios.post("http://localhost:5000/api/users/logout",{withCredentials:true}) 
     if(response.statusText === "OK") {
       toast.success(response.data.message)
       navigate("/login")
@@ -20,7 +20,7 @@ const handleLogout = async () => {
 }
   return (
     <NavbarContainer>
-      <Title>Devtutor.</Title>
+      <Title>Devtutor <span style={{color:"red",fontSize:'1.5rem'}}>.</span></Title>
       <UserSection>
         <Username>{username}</Username>
         <LogoutButton onClick={handleLogout}>
@@ -44,6 +44,8 @@ const NavbarContainer = styled.nav`
 const Title = styled.h1`
   margin-right: auto;
   padding: 10px 20px;
+  margin-bottom: 20px;
+  text-transform: capitalize;
 `;
 
 const UserSection = styled.div`

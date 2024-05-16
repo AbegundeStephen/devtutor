@@ -23,7 +23,7 @@ app.use(cors({
 //Incase there ia an error,app should use the error middleware
 app.use(errorHandler);
 
-app.use("/api/courses",coursesRoutes);
+app.use("/api/courses",protectecRoute,coursesRoutes);
 app.use("/api/users",userRoutes);
 app.get("/*", (req,res) => {
     res.json("WELCOME TO THE COURSE ENROLLMENT API")

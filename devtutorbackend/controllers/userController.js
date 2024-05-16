@@ -120,7 +120,7 @@ try {
            httpOnly: true,
            expires: new Date(Date.now() + 1000 * 86400),// cookie expiry set to 1 day
            sameSite: 'none',
-           secure: true
+           secure: true,
         });
   return res.status(200).json({message:"Login successfull", token})
 
