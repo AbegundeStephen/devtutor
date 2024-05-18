@@ -6,10 +6,10 @@ const userRoutes = express.Router()
 // Register a new user
 userRoutes.post('/register',createUser);
 
-// Get all users
+// Get all users, only when a user has registered or logged in
 userRoutes.get('/getall',protectecRoute,findAllUsers)
 
-// User login
+// User login route
 userRoutes.post('/login', login);
 
 //Logout user

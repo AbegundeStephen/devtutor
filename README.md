@@ -1,4 +1,5 @@
 # Devtutor
+Author:Abegunde Oluwatimilehin stephen
 
 ## Description
 
@@ -11,7 +12,7 @@ Devtutor is an online learning platform that offers a wide range of courses desi
 ## Installation
 
 
-This project requires you to have  MYSQL server running on you local machine. Also,locate the dbconfig file in the "devtutorbackend" diretory and edit the connection configuration file.
+This project requires MYSQL server running on your local machine. Also,locate the dbconfig file in the "devtutorbackend" diretory and edit the connection configuration file.
 To set up Devtutor on your local machine, follow these steps:
 
 ```bash
@@ -26,6 +27,7 @@ npm install
 ```
 ### Usage
 After installation, you can start the project api locally by running the following scripts respectively:
+
 ```bash
 cd devtutorbackend
 npm run createdb

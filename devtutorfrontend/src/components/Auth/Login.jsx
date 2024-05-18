@@ -10,10 +10,10 @@ import axios from 'axios'
 
 const LoginPage = () => {
   const navigate = useNavigate()
-  
-  const handleSubmit = async (values, {setSubmitting}) => {
-    
+  // method to handle form submit when the login button is clicked
+  const handleSubmit = async (values, {setSubmitting}) => { 
     try {
+      // make a post request to the login api route
       const response = await axios.post("http://localhost:5000/api/users/login",values, {withCredentials:true});
       toast.success(response.data.message)
       setSubmitting(false);
@@ -23,7 +23,7 @@ const LoginPage = () => {
       }
     } catch (error) {
       toast.error(error.response.data.message)
-     setSubmitting(false);
+      setSubmitting(false);
     }
   };
   return (

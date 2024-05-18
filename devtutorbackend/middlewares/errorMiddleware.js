@@ -1,3 +1,5 @@
+
+//middleware to catch error from response coming from the server
 const errorHandler = (error, req, res, next) => {
     const statusCode = res.statusCode ? res.statusCode : 500;
      //const message = error.statusCode || "An unexpected error occurred"

@@ -27,8 +27,8 @@ const Register = () => {
   const navigate= useNavigate()
 
   const handleSubmit = async (values, {setSubmitting}) => {
-    
-    try {
+     try {
+      //make an api call to the create user route
       const response = await axios.post("http://localhost:5000/api/users/register",values,{withCredentials:true});
       toast.success(response.data.message)
       setSubmitting(false);
